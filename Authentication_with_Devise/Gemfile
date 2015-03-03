@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'jquery-turbolinks'
 
 gem 'devise', '3.4.1'
+gem 'devise_zxcvbn'
 gem 'bootstrap-sass'
 
 gem 'thin'

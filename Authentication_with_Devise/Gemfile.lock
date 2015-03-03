@@ -76,6 +76,9 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise_zxcvbn (1.1.1)
+      devise
+      zxcvbn-ruby (>= 0.0.2)
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.3.0)
@@ -173,6 +176,7 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    zxcvbn-ruby (0.0.3)
 
 PLATFORMS
   x86-mingw32
@@ -185,6 +189,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   delayed_job_active_record
   devise (= 3.4.1)
+  devise_zxcvbn
   jquery-rails
   jquery-turbolinks
   pg

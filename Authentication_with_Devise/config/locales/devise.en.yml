@@ -54,6 +54,7 @@ en:
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
       expired: "has expired, please request a new one"
       not_found: "not found"
+      weak_password: "not strong enough. Consider adding a number, symbols or more letters to make it stronger."
       not_locked: "was not locked"
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
