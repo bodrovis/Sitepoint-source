@@ -32,6 +32,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable
 
   def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args).deliver_later
+    devise_mailer.send(notification, self, *args).deliver_later unless Rails.env.production?
   end
 end
