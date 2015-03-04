@@ -32,6 +32,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable, :zxcvbnable
 
   def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, self, *args).deliver_later unless Rails.env.production?
+    if Rails.env.production?
+      # No worker process in production to handle scheduled tasks
+      devise_mailer.send(notification, self, *args).deliver_now
+    else
+      devise_mailer.send(notification, self, *args).deliver_later
+    end
   end
 end
