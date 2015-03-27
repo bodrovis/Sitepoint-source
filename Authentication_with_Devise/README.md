@@ -1,4 +1,4 @@
-Source code for the []() article on
+Source code for the [Devise Authentication in Depth](http://www.sitepoint.com/devise-authentication-in-depth/) article on
 SitePoint,
 created by Ilya Bodrov ([radiant-wind.com](http://radiant-wind.com)).
 
