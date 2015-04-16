@@ -1,0 +1,19 @@
+<% page_header 'Your matches' %>
+
+<% if @matches && @matches.any? %>
+  <table class="table table-striped table-hover info-table">
+    <% @matches.each do |match| %>
+      <tr>
+        <td>
+          <%= render 'player_hero', hero: current_user.played_for_in(match) %>
+          <%= link_to match.started_at, match_path(match) %>
+          <% if current_user.won?(match) %>
+            <span class="label label-success">won</span>
+          <% else %>
+            <span class="label label-danger">lost</span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

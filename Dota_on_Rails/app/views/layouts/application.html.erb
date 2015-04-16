@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Doter</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Doter', root_path, class: 'navbar-brand' %>
+    </div>
+    <div id="navbar">
+      <% if current_user %>
+        <ul class="nav navbar-nav pull-right">
+          <li><%= image_tag current_user.avatar_url, alt: current_user.nickname %></li>
+          <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Log In via Steam', '/auth/steam' %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+
+  <div class="page-header"><h1><%= yield :page_header %></h1></div>
+
+  <%= yield %>
+</div>
+
+<div id="footer">
+  <div class="container">
+    <p class="text-muted">Created by <a href="http://radiant-wind.com" target="_blank">Radiant Wind</a></p>
+  </div>
+</div>
+
+</body>
+</html>

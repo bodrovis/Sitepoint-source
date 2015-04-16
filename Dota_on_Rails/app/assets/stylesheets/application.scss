@@ -1,0 +1,26 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'bootstrap/theme';
+
+$radiant: #92A524;
+$dire: #C23C2A;
+
+nav {
+  img {
+    max-width: 48px;
+  }
+}
+
+.dire {
+  color: $dire;
+}
+
+.radiant {
+  color: $radiant;
+}
+
+.info-table {
+  img {
+    width: 30px;
+  }
+}
