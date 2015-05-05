@@ -33,7 +33,7 @@ class Match < ActiveRecord::Base
                                 },
                                 hero: {id: player.hero.id,
                                        name: player.hero.name,
-                                       image: player.hero.image_url},
+                                       image: player.hero.image_url(:sb)},
                                 level: player.level,
                                 kills: player.kills,
                                 deaths: player.deaths,
