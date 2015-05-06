@@ -1,0 +1,14 @@
+<div class="page-header"><h1>Projects</h1></div>
+
+<% @projects.each do |project| %>
+  <div class="well well-sm">
+    <h2><%= project.title %></h2>
+    <% if can? :update, project %>
+      <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-info' %>
+    <% end %>
+
+    <% if can? :destroy, project %>
+      <%= link_to 'Delete', project_path(project), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
+    <% end %>
+  </div>
+<% end %>
