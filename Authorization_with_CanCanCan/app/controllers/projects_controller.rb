@@ -1,10 +1,9 @@
 class ProjectsController < ApplicationController
+  before_action :load_projects, only: :index
   load_and_authorize_resource
-  skip_load_and_authorize_resource only: :index
 
   def index
-    @projects = Project.order('created_at DESC')
-    authorize! :index, @projects, message: 'You cannot access our projects. Perhaps, you should authenticate first.'
+    #authorize! :index, @projects
   end
 
   def new
@@ -47,5 +46,9 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :ongoing)
+  end
+
+  def load_projects
+    @projects = Project.order('created_at DESC')
   end
 end
