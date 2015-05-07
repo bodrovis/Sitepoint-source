@@ -49,6 +49,6 @@ class ProjectsController < ApplicationController
   end
 
   def load_projects
-    @projects = Project.order('created_at DESC')
+    @projects = Project.accessible_by(current_ability).order('created_at DESC')
   end
 end
