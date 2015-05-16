@@ -1,10 +1,4 @@
-# Source code for articles on SitePoint
-
-This repo contains source code for my [articles on SitePoint](http://www.sitepoint.com/author/ibodrov/) (starting from March 2015).
-
-Source code for previous articles can be found in the corresponding [repos](https://github.com/bodrovis?tab=repositories).
-
-## Reporting issues / asking questions
+# Reporting issues / asking questions
 
 I am really glad when I receive feedback and questions from you guys because this means my articles are interesting and
 useful. After all I am doing this for you as I really love teaching :).
@@ -26,13 +20,3 @@ some other languages (Russian, Ukrainian, Polish), well, at some basic level at 
 * If you want me to cover a specific topic, try to provide some exact details on what has to be covered. Articles can't be too
 long and therefore topics like "how to write automated tests" or "how to write cool Rails apps" aren't suitable. There are
 many good books about Ruby and Rails in general out there :).
-
-The more information you provide the faster we will be able to find solution. Thank you for your understanding and
-please don't hesitate to contact me :).
-
-## Legals
-
-(c) Ilya Bodrov ([radiant-wind.com](http://radiant-wind.com))
-
-
-
