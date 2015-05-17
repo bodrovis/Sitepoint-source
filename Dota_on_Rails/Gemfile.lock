@@ -1,13 +1,3 @@
-GIT
-  remote: git://github.com/bodrovis/dota.git
-  revision: 5ed0701e26b8734ae7e20bd0888c6b87cd6770d7
-  branch: new_items
-  specs:
-    dota (0.0.17)
-      facets (~> 3.0.0)
-      faraday (~> 0.9.1)
-      faraday_middleware (~> 0.9.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -73,6 +63,10 @@ GEM
     coffee-script-source (1.9.1.1)
     daemons (1.2.2)
     debug_inspector (0.0.2)
+    dota (0.0.18)
+      facets (~> 3.0.0)
+      faraday (~> 0.9.1)
+      faraday_middleware (~> 0.9.1)
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.5.2)
@@ -198,7 +192,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   coffee-rails (~> 4.1.0)
-  dota!
+  dota (~> 0.0.18)
   jquery-rails
   omniauth-steam
   pg
