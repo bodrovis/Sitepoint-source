@@ -41,7 +41,12 @@ class User < ActiveRecord::Base
     if matches_arr && matches_arr.any?
       matches_arr.each do |match|
         unless self.matches.where(uid: match.id).any?
-          match_info = Dota.api.matches(match.id)
+          match_info = nil
+          loop do
+            # Sometimes Steam API returns nothing in response
+            match_info = Dota.api.matches(match.id)
+            break if match_info && match_info.id
+          end
           new_match = self.matches.create({
                                             uid: match.id,
                                             winner: match_info.winner.to_s.titleize,
