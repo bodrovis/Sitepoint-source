@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/vinnicc/dota.git
+  revision: 3022b2b3fb512d013af83da00fa43a68ffa6302c
+  specs:
+    dota (0.0.18)
+      facets (~> 3.0.0)
+      faraday (~> 0.9.1)
+      faraday_middleware (~> 0.9.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -36,11 +45,11 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    annotate (2.6.8)
+    annotate (2.6.10)
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
     arel (6.0.0)
-    autoprefixer-rails (5.1.11)
+    autoprefixer-rails (5.2.0)
       execjs
       json
     better_errors (2.1.1)
@@ -63,10 +72,6 @@ GEM
     coffee-script-source (1.9.1.1)
     daemons (1.2.2)
     debug_inspector (0.0.2)
-    dota (0.0.18)
-      facets (~> 3.0.0)
-      faraday (~> 0.9.1)
-      faraday_middleware (~> 0.9.1)
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.5.2)
@@ -89,9 +94,9 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
-    mime-types (2.5)
+    mime-types (2.6.1)
     mini_portile (0.6.2)
-    minitest (5.6.1)
+    minitest (5.7.0)
     multi_json (1.11.0)
     multipart-post (2.0.0)
     nokogiri (1.6.6.2-x86-mingw32)
@@ -150,7 +155,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     ruby-openid (2.7.0)
-    sass (3.4.13)
+    sass (3.4.14)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -192,7 +197,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   coffee-rails (~> 4.1.0)
-  dota (~> 0.0.18)
+  dota!
   jquery-rails
   omniauth-steam
   pg

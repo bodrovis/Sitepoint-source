@@ -2,6 +2,11 @@
 
 <h2 class="<%= @match.winner.downcase %>"><%= @match.winner %> won</h2>
 
+<p>
+  <i class="glyphicon glyphicon-thumbs-up"></i> <%= @match.likes %>
+  <i class="glyphicon glyphicon-thumbs-down"></i> <%= @match.dislikes %>
+</p>
+
 <ul>
   <li><strong>Mode:</strong> <%= @match.mode %></li>
   <li><strong>Type:</strong> <%= @match.match_type %></li>
@@ -9,10 +14,6 @@
   <li><strong>First blood:</strong> <%= @match.first_blood %></li>
 </ul>
 
-<h3 class="radiant">Team Radiant</h3>
+<%= render 'details_table', players: @players[true], team: 'radiant' %>
 
-<%= render 'players_table', players: @players[true] %>
-
-<h3 class="dire">Team Dire</h3>
-
-<%= render 'players_table', players: @players[false] %>
+<%= render 'details_table', players: @players[false], team: 'dire' %>

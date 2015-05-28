@@ -11,7 +11,10 @@
 #  updated_at  :datetime         not null
 #
 
+require './lib/utils'
+
 class User < ActiveRecord::Base
+  include Utils
   has_many :matches
 
   class << self
@@ -55,7 +58,17 @@ class User < ActiveRecord::Base
                                             mode: match_info.mode,
                                             cluster: match_info.cluster,
                                             duration: parse_duration(match_info.duration),
-                                            match_type: match_info.type
+                                            match_type: match_info.type,
+                                            likes: match_info.positive_votes,
+                                            dislikes: match_info.negative_votes,
+                                            towers_status: {
+                                              radiant: parse_buildings(match_info.radiant.tower_status),
+                                              dire: parse_buildings(match_info.dire.tower_status)
+                                            },
+                                            barracks_status: {
+                                              radiant: parse_buildings(match_info.radiant.barracks_status),
+                                              dire: parse_buildings(match_info.dire.barracks_status)
+                                            }
                                           })
           new_match.load_players!(match_info.radiant, match_info.dire)
         end
@@ -65,19 +78,11 @@ class User < ActiveRecord::Base
 
   private
 
-  def parse_duration(d)
-    hr = (d / 3600).floor
-    min = ((d - (hr * 3600)) / 60).floor
-    sec = (d - (hr * 3600) - (min * 60)).floor
-
-    hr = '0' + hr.to_s if hr.to_i < 10
-    min = '0' + min.to_s if min.to_i < 10
-    sec = '0' + sec.to_s if sec.to_i < 10
-
-    hr.to_s + ':' + min.to_s + ':' + sec.to_s
-  end
-
   def find_self_in(match)
     match.players.find_by(uid: uid)
+  end
+
+  def parse_buildings(arr)
+    arr.keep_if {|k, v| v }.keys
   end
 end
