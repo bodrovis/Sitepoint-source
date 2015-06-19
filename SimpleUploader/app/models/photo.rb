@@ -3,7 +3,10 @@ class Photo < ActiveRecord::Base
                     #url: "/system/:hash.:extension",
                     #hash_secret: "abc123",
                     #preserve_files: "true",
-                    styles: { thumb: "64x64#" },
+                    styles: { thumb: ["64x64#", :jpg],
+                              original: ['500x500>', :jpg] },
+                    convert_options: { thumb: "-quality 75 -strip",
+                                       original: "-quality 85 -strip" },
                     storage: :s3,
                     s3_credentials: {access_key_id: ENV["AWS_KEY"], secret_access_key: ENV["AWS_SECRET"]},
                     bucket: "bodrov_sitepoint"
