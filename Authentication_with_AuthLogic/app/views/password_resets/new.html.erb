@@ -1,0 +1,10 @@
+<div class="page-header"><h1>Forgot your password?</h1></div>
+
+<%= form_tag password_resets_path, method: :create do %>
+  <div class="form-group">
+    <%= label_tag 'email', 'E-mail' %>
+    <%= email_field_tag 'email', nil, class: 'form-control' %>
+  </div>
+
+  <%= submit_tag 'Send reset instructions', class: 'btn btn-primary' %>
+<% end %>

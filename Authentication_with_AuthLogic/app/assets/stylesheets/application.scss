@@ -1,0 +1,14 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+.navbar li > span {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  line-height: 20px;
+  color: #9d9d9d;
+  display: block;
+}
+
+#footer {
+  margin-top: 50px;
+}
