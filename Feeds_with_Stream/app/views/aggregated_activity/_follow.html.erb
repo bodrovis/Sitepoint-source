@@ -1,0 +1,5 @@
+<i class="glyphicon glyphicon-time"></i> <%= time_ago_in_words(activity['updated_at']) %> ago
+
+<% for activity in activity['activities'] %>
+  <%= render_activity activity %>
+<% end %>
