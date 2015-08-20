@@ -16,11 +16,11 @@
     </div>
     <div id="navbar">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'New item', new_item_path %></li>
-        <li><%= link_to 'Users', users_path %></li>
-        <li><%= link_to 'Flat feed', feed_flat_path %></li>
-        <li><%= link_to 'Aggregated feed', feed_aggregated_path %></li>
         <% if user_signed_in? %>
+          <li><%= link_to 'New item', new_item_path %></li>
+          <li><%= link_to 'Users', users_path %></li>
+          <li><%= link_to 'Flat feed', feed_flat_path %></li>
+          <li><%= link_to 'Aggregated feed', feed_aggregated_path %></li>
           <li>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="glyphicon"></i> <%= current_user.name %><b class="caret"></b>

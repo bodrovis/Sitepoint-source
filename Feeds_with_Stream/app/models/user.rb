@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :follows
+  has_many :items
 
   def followed(user = nil)
     self.follows.where(user: user).first
