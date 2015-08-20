@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150819120514) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "follows", ["target_id", "user_id"], name: "index_follows_on_target_id_and_user_id", unique: true
   add_index "follows", ["target_id"], name: "index_follows_on_target_id"
   add_index "follows", ["user_id"], name: "index_follows_on_user_id"
 
@@ -35,14 +36,12 @@ ActiveRecord::Schema.define(version: 20150819120514) do
 
   create_table "pins", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "influencer_id"
     t.integer  "item_id"
     t.text     "message"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "pins", ["influencer_id"], name: "index_pins_on_influencer_id"
   add_index "pins", ["item_id"], name: "index_pins_on_item_id"
   add_index "pins", ["user_id"], name: "index_pins_on_user_id"
 

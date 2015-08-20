@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   resources :follows, only: [:create, :destroy]
 
   scope path: '/feeds', controller: :feeds, as: 'feed' do
-    get 'me', to: :user
+    get 'user/:id', to: :user, as: :user
     get 'flat', to: :flat
+    get 'notification', to: :notification
     get 'aggregated', to: :aggregated
   end
 

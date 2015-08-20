@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   has_many :follows
   has_many :items
 
-  def followed(user = nil)
-    self.follows.where(user: user).first
+  def followed_by(user = nil)
+    user.follows.find_by(target_id: id)
   end
 end
