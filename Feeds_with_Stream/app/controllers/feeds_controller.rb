@@ -24,7 +24,7 @@ class FeedsController < ApplicationController
   def notification
     feed = StreamRails.feed_manager.get_notification_feed(current_user.id)
     results = feed.get['results']
-    @activities = @enricher.enrich_activities(results)
+    @activities = @enricher.enrich_aggregated_activities(results)
   end
 
   private
