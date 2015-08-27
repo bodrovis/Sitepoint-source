@@ -1,0 +1,14 @@
+<div class="page-header"><h1><%= t(".title") %></h1></div>
+
+<p><%= t(".description") %></p>
+
+<%= form_for :password_reset,
+             url: user_password_path(@user, token: @user.confirmation_token),
+             html: { method: :put } do |form| %>
+  <div class="form-group">
+    <%= form.label :password %>
+    <%= form.password_field :password, class: 'form-control' %>
+  </div>
+
+  <%= form.submit 'Change Password', class: 'btn btn-primary' %>
+<% end %>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ClearSky</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Clear Sky', root_path, class: 'navbar-brand' %>
+    </div>
+    <div id="navbar">
+      <% if signed_in? %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Add Page', new_page_path %></li>
+        </ul>
+      <% end %>
+
+      <ul class="nav navbar-nav pull-right">
+        <% if signed_in? %>
+          <li><span><%= current_user.email %></span></li>
+          <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign in', sign_in_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+
+  <%= yield %>
+
+  <div id="footer">
+    <div class="container-fluid">
+      <p class="text-muted">Created by <a href="http://radiant-wind.com" target="_blank">Radiant Wind</a></p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

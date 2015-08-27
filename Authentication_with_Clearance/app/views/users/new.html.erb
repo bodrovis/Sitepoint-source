@@ -1,0 +1,11 @@
+<div class="page-header"><h1><%= t(".title") %></h1></div>
+
+  <%= form_for @user do |form| %>
+    <%= render partial: '/users/form', object: form %>
+
+      <%= form.submit 'Sign Up', class: 'btn btn-primary' %>
+
+    <div class="other-links">
+      <%= link_to t(".sign_in"), sign_in_path, class: 'btn btn-info' %>
+    </div>
+  <% end %>
