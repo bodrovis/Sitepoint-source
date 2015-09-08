@@ -9,7 +9,7 @@ Source code for previous articles can be found in the corresponding [repos](http
 I am really glad when I receive feedback and questions from you guys because this means my articles are interesting and
 useful. After all I am doing this for you as I really love teaching :).
 
-Quite ofter I receive questions on how to extend some solution
+Quite often I receive questions on how to extend some solution
 further or fix some kind of error. I try to be as helpful as possible but please help me a bit as well. So, when sending
 me a question via e-mail or when reporting an issue here on GitHub:
 
