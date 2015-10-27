@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Raygunner</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <script>
+    !function(n,e,a,t,r,s,c){n.RaygunObject=r,n[r]=n[r]||function(){(n[r].o=n[r].o
+                    ||[]).push(arguments)},s=e.createElement(a),c=e.getElementsByTagName(a)[0],
+            s.async=1,s.src=t,c.parentNode.insertBefore(s,c)}(window,document,"script",
+            "//cdn.raygun.io/raygun4js/raygun.min.js","rg4js");
+
+    rg4js('apiKey', '<%= ENV['raygun_key'] %>');
+    rg4js('enablePulse', true);
+    rg4js('enableCrashReporting', false);
+  </script>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+<script>
+  rg4js('setUser', {
+    identifier: '<%= current_user.email %>',
+    isAnonymous: false,
+    email: '<%= current_user.email %>',
+    firstName: 'Name',
+    fullName: 'Name Surname'
+  });
+</script>
+</body>
+</html>
