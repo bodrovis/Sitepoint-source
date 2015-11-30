@@ -1,0 +1,6 @@
+<% if session[:access_token] %>
+  <%= link_to 'Show some money', api_tests_path %>
+<% else %>
+  <%= link_to 'Authenticate via opro',
+              "#{ENV['opro_base_url']}/oauth/new?client_id=#{ENV['opro_client_id']}&client_secret=#{ENV['opro_client_secret']}&redirect_uri=%2F%2Flocalhost%3A3001%2Foauth%2Fcallback" %>
+<% end %>
