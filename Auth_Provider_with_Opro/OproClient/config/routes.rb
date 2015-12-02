@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/oauth/callback', to: 'sessions#create'
 
-  resources :api_tests, only: [:index]
+
+  resources :api_tests
 
   root to: 'pages#index'
 

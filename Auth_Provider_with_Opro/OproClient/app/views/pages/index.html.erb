@@ -1,6 +1,10 @@
-<% if session[:access_token] %>
-  <%= link_to 'Show some money', api_tests_path %>
+<h1>Welcome!</h1>
+<% if current_user.token_missing? %>
+  <%= link_to 'Authenticate via oPRO', new_opro_token_path %>
 <% else %>
-  <%= link_to 'Authenticate via opro',
-              "#{ENV['opro_base_url']}/oauth/new?client_id=#{ENV['opro_client_id']}&client_secret=#{ENV['opro_client_secret']}&redirect_uri=%2F%2Flocalhost%3A3001%2Foauth%2Fcallback" %>
+  <ul>
+    <li><%= link_to 'Show some money', api_tests_path %></li>
+    <li><%= link_to 'Get a user', api_test_path(1) %></li>
+    <li><%= link_to 'Update a user', api_test_path(1), method: :patch %></li>
+  </ul>
 <% end %>

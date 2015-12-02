@@ -8,13 +8,13 @@ Opro.setup do |config|
   # Custom permissions can be configured by adding them to `config.request_permissions`
   # You can then require that permission on individual actions by calling
   # `require_oauth_permissions` in the controller
-  config.request_permissions = [:write]
+  config.request_permissions = [:update]
 
   ## Refresh Token Config
   # uncomment `config.require_refresh_within` to require refresh tokens
   # this will expire tokens within the given time duration, having it enabled
   # is more secure, but harder to use.
-  # config.require_refresh_within = 1.month
+  config.require_refresh_within = 12.hours
 
   ## Allow Password Exchange
   # You can allow client applications to exchange a user's credentials

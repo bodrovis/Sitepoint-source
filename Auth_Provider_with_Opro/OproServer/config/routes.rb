@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   mount_opro_oauth
   devise_for :users
 
+  namespace :api do
+    resources :users
+  end
+
   root to: 'pages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

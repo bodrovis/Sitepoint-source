@@ -1,10 +1,27 @@
 class ApiTestsController < ApplicationController
+  before_action :check_token
+  before_action :prepare_client
+
   def index
-    redirect_to root_path and return unless session[:access_token]
-    @response = JSON.parse RestClient.get("#{ENV['opro_base_url']}/oauth_tests/show_me_the_money.json",
-                                          params: {
-                                              access_token: session[:access_token]
-                                          },
-                                          accept: :json)
+    @response = @client.test_api
+  end
+
+  def show
+    @response = @client.get_user(params[:id])
+  end
+
+  def update
+    @response = @client.update_user(params[:id])
+  end
+
+  private
+
+  def check_token
+    redirect_to new_opro_token_path and return if current_user.token_missing?
+    current_user.refresh_token! if current_user.token_expired?
+  end
+
+  def prepare_client
+    @client = OproApi.new(current_user.access_token)
   end
 end

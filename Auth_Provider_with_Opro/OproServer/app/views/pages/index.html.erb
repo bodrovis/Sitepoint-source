@@ -1,0 +1,9 @@
+<h1>Welcome to my Auth provider!</h1>
+
+<% if user_signed_in? %>
+  <p><%= link_to 'Register a new client app', new_oauth_client_app_path %></p>
+
+  <p><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></p>
+<% else %>
+  <p><%= link_to 'Log In', new_user_session_path %></p>
+<% end %>
