@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   allow_oauth!
-  #require_oauth_permissions :update, only: :update
+  require_oauth_permissions :update, only: :update
 
   def show
     @user = User.find(params[:id])
