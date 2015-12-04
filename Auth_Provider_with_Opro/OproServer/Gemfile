@@ -11,6 +11,7 @@ group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'pry-rails'
 end
 
 group :production do
@@ -18,7 +19,7 @@ group :production do
   gem 'pg'
 end
 
-gem 'opro'
+gem 'opro', github: 'bodrovis/opro'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

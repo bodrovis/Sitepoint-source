@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130204059) do
+ActiveRecord::Schema.define(version: 20151202174154) do
 
   create_table "opro_auth_grants", force: :cascade do |t|
     t.string   "code"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20151130204059) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "requests_count",  default: 0
+    t.date     "last_request_at", default: '2015-12-02'
   end
 
   add_index "opro_client_apps", ["app_id", "app_secret"], name: "index_opro_client_apps_on_app_id_and_app_secret", unique: true

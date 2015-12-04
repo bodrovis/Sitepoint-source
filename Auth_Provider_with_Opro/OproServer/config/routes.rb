@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  mount_opro_oauth
+  mount_opro_oauth controllers: {
+      oauth_new: 'oauth/auth',
+      oauth_token: 'oauth/token'
+  }, except: :docs
   devise_for :users
 
   namespace :api do

@@ -8,7 +8,7 @@ Opro.setup do |config|
   # Custom permissions can be configured by adding them to `config.request_permissions`
   # You can then require that permission on individual actions by calling
   # `require_oauth_permissions` in the controller
-  config.request_permissions = [:update]
+  config.request_permissions = [:write]
 
   ## Refresh Token Config
   # uncomment `config.require_refresh_within` to require refresh tokens

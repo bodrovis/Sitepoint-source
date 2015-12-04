@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   allow_oauth!
-  require_oauth_permissions :update, only: :update
+  #require_oauth_permissions :update, only: :update
 
   def show
     @user = User.find(params[:id])
@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.email = params[:email]
+    @user.last_sign_in_ip = params[:ip]
     render json: {result: @user.save}
   end
 end

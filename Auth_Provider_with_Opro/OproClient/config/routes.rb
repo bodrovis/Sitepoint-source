@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
   get '/oauth/callback', to: 'sessions#create'
-
+  delete '/logout', to: 'sessions#destroy', as: :logout
 
   resources :api_tests
 
