@@ -1,9 +1,13 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :null_session
+  protect_from_forgery
 
   private
+
+  def oauth_valid_password_auth?(client_id, client_secret)
+    client_id == '24111b671c3675d3a1d133acd1d6388f'
+  end
 
   def oauth_client_record_access!(client_id, params)
     client_app = Opro::Oauth::ClientApp.find(client_id)

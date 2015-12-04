@@ -2,11 +2,13 @@ class OproApi
   TOKEN_URL = "#{ENV['opro_base_url']}/oauth/token.json"
   API_URL = "#{ENV['opro_base_url']}/api"
 
-  attr_reader :access_token, :refresh_token
+  attr_reader :access_token, :refresh_token, :email, :password
 
-  def initialize(access_token: nil, refresh_token: nil)
+  def initialize(access_token: nil, refresh_token: nil, email: nil, password: nil)
     @access_token = access_token
     @refresh_token = refresh_token
+    @email = email
+    @password = password
   end
 
   def authenticate!(code)
@@ -16,6 +18,18 @@ class OproApi
                                    client_id: ENV['opro_client_id'],
                                    client_secret: ENV['opro_client_secret'],
                                    code: code
+                               },
+                               accept: :json))
+  end
+
+  def authenticate_with_email!
+    return unless email && password
+    JSON.parse(RestClient.post(TOKEN_URL,
+                               {
+                                   client_id: ENV['opro_client_id'],
+                                   client_secret: ENV['opro_client_secret'],
+                                   email: email,
+                                   password: password
                                },
                                accept: :json))
   end

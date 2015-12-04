@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :api do
-    resources :users
+    resources :users, only: [:show, :update]
   end
 
   root to: 'pages#index'

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get '/oauth/callback', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy', as: :logout
 
-  resources :api_tests
+  resources :api_tests, only: [:index, :show, :update]
 
   root to: 'pages#index'
 

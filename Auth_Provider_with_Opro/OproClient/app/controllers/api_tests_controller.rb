@@ -18,7 +18,8 @@ class ApiTestsController < ApplicationController
 
   def check_token
     redirect_to new_opro_token_path and return if
-        current_user.token_missing? || (current_user.token_expired? && current_user.refresh_token_missing?)
+        !current_user || current_user.token_missing? ||
+            (current_user.token_expired? && current_user.refresh_token_missing?)
     if current_user.token_expired?
       updated_current_user = current_user.refresh_token!
       if updated_current_user

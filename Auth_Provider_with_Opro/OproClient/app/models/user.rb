@@ -2,9 +2,10 @@ class User < ActiveRecord::Base
   validates :access_token, presence: true
   validates :refresh_token, presence: true
   validates :expires_at, presence: true
+  validates :uid, presence: true, uniqueness: true
 
   class << self
-    def from_opro(auth)
+    def from_opro(auth = nil)
       return false unless auth
       user = User.find_or_initialize_by(uid: auth['uid'])
       user.access_token = auth['access_token']
@@ -25,7 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def token_expired?
-    !self.expires_at.present? || self.expires_at < Time.current
+    self.expires_at < Time.current
   end
 
   def refresh_token!
