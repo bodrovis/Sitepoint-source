@@ -5,7 +5,8 @@ Rails.application.config.middleware.use OmniAuth::Builder do
            scope: 'public_profile', info_fields: 'id,name,link'
 
   provider :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_SECRET"],
-           scope: 'profile', image_aspect_ratio: 'square', image_size: 48, access_type: 'online', name: 'google'
+           scope: 'profile', image_aspect_ratio: 'square', image_size: 48, access_type: 'online', name: 'google',
+           access_type: "offline", skip_jwt: true
 
   provider :linkedin, ENV['LINKEDIN_KEY'], ENV['LINKEDIN_SECRET'],
            scope: 'r_basicprofile',
