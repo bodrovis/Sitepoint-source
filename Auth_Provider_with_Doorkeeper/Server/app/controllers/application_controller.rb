@@ -9,5 +9,9 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def doorkeeper_unauthorized_render_options(error: nil)
+    { json: { error: "Not authorized" } }
+  end
+
   helper_method :current_user
 end

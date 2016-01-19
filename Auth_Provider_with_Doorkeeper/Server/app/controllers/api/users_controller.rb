@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  before_action -> { doorkeeper_authorize! :public }, only: :index
+  before_action -> { doorkeeper_authorize! :public }, only: :show
   before_action -> { doorkeeper_authorize! :write }, only: :update
 
   def show
