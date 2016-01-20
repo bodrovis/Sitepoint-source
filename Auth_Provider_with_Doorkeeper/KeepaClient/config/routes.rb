@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get '/oauth/callback', to: 'sessions#create'
+  get '/auth/:provider/callback', to: 'sessions#create'
+
+  get '/user', to: 'users#show', as: :user
+  get '/user/update', to: 'users#update', as: :update_user
 
   root to: 'pages#index'
   # The priority is based upon order of creation: first created -> highest priority.
