@@ -3,8 +3,8 @@
 I am really glad when I receive feedback and questions from you guys because this means my articles are interesting and
 useful. After all I am doing this for you as I really love teaching :).
 
-Quite ofter I receive questions on how to extend some solution
-further or fix some kind of error. I try to be as helpful as possible but please help me a bit as well. So, when sending
+Quite often I receive questions on how to extend some solution
+further or fix some kind of an error. I'm trying to be as helpful as possible but please help me a bit as well. So, when sending
 me a question via e-mail or when reporting an issue here on GitHub:
 
 * Specify which article are we talking about.
@@ -15,7 +15,7 @@ If, for some reason, you can't reveal your code (due to privacy policies, for ex
 somehow.
 * Try to overcome the problem yourself before contacting me and list the solutions you've already tried. Still, if you have
 absolutely no clue of what to do - go ahead and write me right away.
-* If you are reporting issue on GitHub, write in English because other people might have the same problem. I am able to understand
+* If you are reporting an issue on GitHub, write in English because other people might experience the same problem. I am able to understand
 some other languages (Russian, Ukrainian, Polish), well, at some basic level at least, but still English is preferred.
 * If you want me to cover a specific topic, try to provide some exact details on what has to be covered. Articles can't be too
 long and therefore topics like "how to write automated tests" or "how to write cool Rails apps" aren't suitable. There are
