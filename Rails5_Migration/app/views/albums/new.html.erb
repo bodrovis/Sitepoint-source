@@ -1,0 +1,8 @@
+<h1>New album</h1>
+
+<%= form_for @album do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.submit %>
+<% end %>

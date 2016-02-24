@@ -1,0 +1,5 @@
+<li id="cart_item-<%= cart_item.id %>">
+  <%= cart_item.album.title %>
+  <span class="quantity"><%= cart_item.quantity %></span>
+  <%= link_to '[ x ]', cart_item_path(cart_item), method: :delete %>
+</li>
