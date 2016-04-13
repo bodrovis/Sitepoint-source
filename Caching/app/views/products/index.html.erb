@@ -1,0 +1,5 @@
+<h1>Products</h1>
+
+<% cache "products" do %>
+  <%= render @products, cached: true %>
+<% end %>
