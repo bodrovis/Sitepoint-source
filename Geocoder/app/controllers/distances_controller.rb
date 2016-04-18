@@ -11,6 +11,5 @@ class DistancesController < ApplicationController
           "The distance between <b>#{@from.title}</b> and <b>#{@to.title}</b> is #{@from.distance_from(@to.to_coordinates)} km"
     end
     redirect_to new_distance_path
-
   end
 end
