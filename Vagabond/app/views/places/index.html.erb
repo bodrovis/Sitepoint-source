@@ -1,0 +1,12 @@
+<header><h1 class="display-4">Places</h1></header>
+
+<%= link_to 'Add place', new_place_path, class: 'btn btn-primary btn-lg' %>
+
+<div class="card">
+  <div class="card-block">
+    <ul>
+      <%= render @places %>
+    </ul>
+  </div>
+</div>
+

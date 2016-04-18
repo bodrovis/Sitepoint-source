@@ -1,24 +1,4 @@
-## README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Source code for the
+[Speed Things up by Learning about Caching in Rails](http://www.sitepoint.com/speed-things-up-by-learning-about-caching-in-rails/)
+at SitePoint,
+created by Ilya Bodrov ([radiant-wind.com](http://radiant-wind.com)).
