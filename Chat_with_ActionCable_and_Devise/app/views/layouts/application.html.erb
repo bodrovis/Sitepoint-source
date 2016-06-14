@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CableChat</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+<div class="container">
+  <% if user_signed_in? %>
+    <p>
+      Logged in as <%= current_user.name %>
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+    </p>
+  <% end %>
+  <%= yield %>
+</div>
+
+<footer>
+  <div class="container">
+    <p class="text-muted">Created by <%= link_to 'Ilya Bodrov', 'http://ilyabodrov.me' %></p>
+  </div>
+</footer>
+</body>
+</html>
