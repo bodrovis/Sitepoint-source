@@ -11,7 +11,7 @@
   <div class="form-group">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <small class="text-muted">(<%= @minimum_password_length %> characters minimum)</small>
     <% end %>
     <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
   </div>

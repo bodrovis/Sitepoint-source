@@ -10,13 +10,22 @@
 
 <body>
 
-<div class="container">
+<nav class="navbar navbar-dark bg-inverse">
+  <%= link_to 'CableChat', root_path, class: 'navbar-brand' %>
+
   <% if user_signed_in? %>
-    <p>
-      Logged in as <%= current_user.name %>
-      <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-    </p>
+    <ul class="nav navbar-nav pull-xs-right">
+      <li class="nav-item">
+        <span class="text-muted">Logged in as <strong><%= current_user.name %></strong></span>
+      </li>
+      <li class="nav-item active">
+        <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+      </li>
+    </ul>
   <% end %>
+</nav>
+
+<div class="container">
   <%= yield %>
 </div>
 
