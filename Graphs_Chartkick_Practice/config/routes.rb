@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :click_tracks, only: [:create] do
-      member do
-        get 'by_day'
+    resources :items, only: [] do
+      resources :click_tracks, only: [:create] do
+        collection do
+          get 'by_day'
+        end
       end
     end
   end

@@ -1,10 +1,8 @@
 module ClickTracksHelper
-  def stat_by(start_date = nil, end_date = nil)
+  def stat_by(start_date, end_date)
     start_date ||= 1.month.ago
-    start_date = start_date.to_datetime
     end_date ||= Time.current
-    end_date = end_date.to_datetime
-    line_chart by_day_api_click_track_path(@item, start_date: start_date, end_date: end_date),
+    line_chart by_day_api_item_click_tracks_path(@item, start_date: start_date, end_date: end_date),
                basic_opts('Click count', start_date, end_date)
   end
 

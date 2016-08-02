@@ -5,7 +5,7 @@ class Api::BaseController < ApplicationController
   private
 
   def load_data
-    @item = Item.includes(:click_tracks).find_by(id: params[:id])
+    @item = Item.includes(:click_tracks).find_by(id: params[:item_id])
     @click_tracks = @item.click_tracks
   end
 
