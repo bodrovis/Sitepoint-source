@@ -4,6 +4,8 @@ This repo contains source code for my [articles on SitePoint](http://www.sitepoi
 
 Source code for previous articles can be found in the corresponding [repos](https://github.com/bodrovis?tab=repositories).
 
+Be sure to [follow me on Twitter](https://twitter.com/bodrovis) to be the first to know about my new articles!
+
 ## Reporting issues / asking questions
 
 I am really glad when I receive feedback and questions from you guys because this means my articles are interesting and
@@ -32,7 +34,7 @@ please don't hesitate to contact me :).
 
 ## Legals
 
-(c) Ilya Bodrov ([radiant-wind.com](http://radiant-wind.com))
+(c) Ilya Bodrov ([ilyabodrov.me](http://ilyabodrov.me))
 
 
 

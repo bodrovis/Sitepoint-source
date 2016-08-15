@@ -1,3 +1,3 @@
-Source code for the []() article on
+Source code for the [Create a Chat App with Rails 5, ActionCable, and Devise](https://www.sitepoint.com/create-a-chat-app-with-rails-5-actioncable-and-devise/) article on
 SitePoint,
-created by Ilya Bodrov ([radiant-wind.com](http://radiant-wind.com)).
+created by Ilya Bodrov ([ilyabodrov.me](http://ilyabodrov.me)).
