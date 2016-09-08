@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# 50.times do
+#   album = Album.create({title: Faker::Book.title, musician: Faker::StarWars.character})
+#   30.times do
+#     album.songs.create({title: Faker::Book.title, duration: rand(500)})
+#   end
+# end
+
+Album.all.shuffle.take(20).each {|a| a.toggle!(:published)}

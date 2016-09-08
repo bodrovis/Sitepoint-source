@@ -48,9 +48,12 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
+    dalli (2.7.6)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
+    faker (1.6.6)
+      i18n (~> 0.5)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -76,6 +79,7 @@ GEM
     nokogiri (1.6.8-x86-mingw32)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    pg (0.18.4-x86-mingw32)
     pkg-config (1.1.7)
     puma (3.6.0)
     rack (2.0.1)
@@ -149,8 +153,11 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  dalli
+  faker
   jbuilder (~> 2.5)
   jquery-rails
+  pg
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   sass-rails (~> 5.0)
