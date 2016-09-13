@@ -13,4 +13,4 @@
 #   end
 # end
 
-Album.all.shuffle.take(20).each {|a| a.toggle!(:published)}
+#Album.all.shuffle.take(20).each {|a| a.toggle!(:published)}

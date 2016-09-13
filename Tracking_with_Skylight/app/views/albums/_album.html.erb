@@ -1,5 +1,5 @@
 <li>
-  <%= link_to album.title, album_path(album) %> by <%= album.musician %>
+  <strong><%= album.title %></strong> by <%= album.musician %>
   <% unless album.published? %>
     <small>(not yet published)</small>
   <% end %>
