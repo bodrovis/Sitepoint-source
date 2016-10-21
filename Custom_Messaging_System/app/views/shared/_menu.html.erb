@@ -1,0 +1,6 @@
+<p>Signed in as <%= current_user.name %> | <%= link_to 'log out', destroy_user_session_path, method: :delete %></p>
+
+<ul>
+  <li><%= link_to 'Home', root_path %></li>
+  <li><%= link_to 'Users', users_path %></li>
+</ul>
