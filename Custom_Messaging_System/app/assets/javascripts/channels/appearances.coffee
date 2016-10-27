@@ -10,4 +10,4 @@ jQuery(document).on 'turbolinks:load', ->
 
   received: (data) ->
     user = $(".user-#{data['user_id']}")
-    if data['online'] then user.addClass('online') else user.removeClass('online')
+    user.toggleClass 'online', data['online']

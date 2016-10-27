@@ -5,7 +5,7 @@
 <% end %>
 
 <% if user_signed_in? %>
-  <div id="current-user" data-id="<%= current_user.id %>"></div>
+  <div id="current-user"></div>
   <p>Signed in as <%= current_user.name %> | <%= link_to 'log out', destroy_user_session_path, method: :delete %></p>
 <% end %>
 <ul>

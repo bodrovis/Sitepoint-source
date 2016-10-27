@@ -5,7 +5,6 @@ jQuery(document).on 'turbolinks:load', ->
   if $('#current-user').size() > 0
     App.personal_chat = App.cable.subscriptions.create {
       channel: "NotificationsChannel"
-      user_id: $('#current-user').data('id')
     },
     connected: ->
       # Called when the subscription is ready for use on the server
