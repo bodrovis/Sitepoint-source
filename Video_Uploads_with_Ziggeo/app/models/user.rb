@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :videos, dependent: :destroy
+
   validates :email, presence: true
   before_create -> { self.uid = generate_uid }
 

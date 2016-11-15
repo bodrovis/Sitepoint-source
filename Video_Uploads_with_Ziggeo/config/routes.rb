@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :videos, only: [:new, :index]
+  resources :videos, only: [:new, :index, :destroy]
+
+  namespace :api do
+    resources :video_callbacks, only: [:create]
+  end
   root 'videos#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
