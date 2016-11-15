@@ -1,3 +1,4 @@
 .idea/
 
 local_env.yml
+.env

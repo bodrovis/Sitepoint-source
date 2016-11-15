@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-block">
+    <ziggeo ziggeo-video='<%= video['token'] %>'
+            ziggeo-width=320
+            ziggeo-height=240>
+    </ziggeo>
+    <p>
+      <strong>Duration:</strong> <%= video['duration'] %>s<br>
+      <strong>Created:</strong> <%= Time.at video['created']  %>
+    </p>
+  </div>
+</div>
