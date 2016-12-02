@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :personal_messages, only: [:new, :create]
   resources :conversations, only: [:index, :show]
 
+  mount ActionCable.server => '/cable'
+
   root 'conversations#index'
 end

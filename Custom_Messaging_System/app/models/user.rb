@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def name
     email.split('@')[0]
   end
+
+  def online?
+    !Redis.new.get("user_#{self.id}_online").nil?
+  end
 end
