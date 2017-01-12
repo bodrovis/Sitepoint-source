@@ -2,15 +2,15 @@
 SitemapGenerator::Sitemap.default_host = "http://www.example.com"
 SitemapGenerator::Sitemap.create_index = true
 
-SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(fog_provider: 'AWS',
-                                                                    aws_access_key_id: 'KEY',
-                                                                    aws_secret_access_key: 'SECRET',
-                                                                    fog_directory: 'DIR',
-                                                                    fog_region: 'REGION')
-
-SitemapGenerator::Sitemap.public_path = 'tmp/'
-SitemapGenerator::Sitemap.sitemaps_host = "https://example.s3.amazonaws.com/"
-SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
+# SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(fog_provider: 'AWS',
+#                                                                     aws_access_key_id: 'KEY',
+#                                                                     aws_secret_access_key: 'SECRET',
+#                                                                     fog_directory: 'DIR',
+#                                                                     fog_region: 'REGION')
+#
+# SitemapGenerator::Sitemap.public_path = 'tmp/'
+# SitemapGenerator::Sitemap.sitemaps_host = "https://example.s3.amazonaws.com/"
+# SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 
 SitemapGenerator::Sitemap.create do
   {en: :english, ru: :russian}.each_pair do |locale, name|

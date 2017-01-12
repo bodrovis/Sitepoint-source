@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
     root to: 'pages#index'
   end
+
+  get '/sitemap', to: 'pages#sitemap'
 end
