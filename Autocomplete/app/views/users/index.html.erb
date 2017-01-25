@@ -1,0 +1,8 @@
+<%= form_tag users_path, method: :get do %>
+  <%= text_field_tag 'term', params[:term], placeholder: "Enter user's name or surname" %>
+  <%= submit_tag 'Search!' %>
+<% end %>
+
+<ul>
+  <%= render @users %>
+</ul>

@@ -1,0 +1,19 @@
+default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  adapter: postgresql
+  database: autocomplete
+  host: localhost
+  user: <%= ENV['PG_USER'] %>
+  password: <%= ENV['PG_PASS'] %>
+
+test:
+  <<: *default
+  database: db/test.sqlite3
+
+production:
+  <<: *default
+  database: db/production.sqlite3
