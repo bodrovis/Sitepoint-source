@@ -1,0 +1,16 @@
+<form *ngIf='token == null' (ngSubmit)='auth()'>
+  {{ user | json }}
+  <div class='form-group'>
+    <label for='login'>Login</label>
+    <input type='text' class='form-control' [(ngModel)]='user.login' name='login' id='login' required>
+  </div>
+
+  <div class='form-group'>
+    <label for='password'>Password</label>
+    <input type='text' class='form-control' [(ngModel)]='user.password' name='password' id='password' required>
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+<h3 *ngIf='token'> We got a token </h3>
