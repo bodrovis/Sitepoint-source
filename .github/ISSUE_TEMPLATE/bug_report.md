@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Source code for an article is misbehaving
+about: Source code for some article does not work as expected
 
 ---
 
