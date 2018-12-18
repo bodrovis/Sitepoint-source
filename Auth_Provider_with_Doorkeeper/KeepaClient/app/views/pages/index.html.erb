@@ -1,0 +1,8 @@
+<h1>Welcome!</h1>
+
+<% if session[:access_token] %>
+  <%= link_to 'Get User', user_path %>
+  <%= link_to 'Update User', update_user_path %>
+<% else %>
+  <%= link_to 'Authorize via Keepa', '/auth/keepa' %>
+<% end %>

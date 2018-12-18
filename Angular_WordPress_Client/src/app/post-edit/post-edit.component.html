@@ -1,0 +1,16 @@
+<div>
+  <h2> Post Creation </h2>
+    <form (ngSubmit)='updatePost()'>
+      <div class="form-group">
+        <label for="title">Post title</label>
+        <input type="text" class="form-control" [(ngModel)]='post_edit.title' name='title' id="title" required>
+      </div>
+
+      <div class="form-group">
+        <label for="content">Post content</label>
+        <textarea class="form-control" id="content" required [(ngModel)]='post_edit.content' name='content'></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>

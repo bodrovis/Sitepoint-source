@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HappyGrapher</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+
+    <div id="footer">
+      <div class="container-fluid">
+        <p class="text-muted">Created by <a href="http://bodrovis.tech" target="_blank">Radiant Wind</a></p>
+      </div>
+    </div>
+  </body>
+</html>

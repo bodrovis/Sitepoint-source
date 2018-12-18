@@ -1,0 +1,34 @@
+wb = xlsx_package.workbook
+
+wb.styles do |style|
+  highlight_cell = style.add_style(bg_color: "EFC376",
+                                   border: Axlsx::STYLE_THIN_BORDER,
+                                   alignment: { horizontal: :center },
+                                   :format_code => '# ###.##')
+  date_cell = style.add_style(format_code: "yyyy-mm-dd", border: Axlsx::STYLE_THIN_BORDER)
+  highlight_text = wb.styles.add_style( :bg_color => "FF0000", :type => :dxf )
+
+  wb.add_worksheet(name: "Products") do |sheet|
+    @products.each do |product|
+      sheet.add_row [product.title, product.price, product.created_at],
+                    style: [nil, highlight_cell, date_cell]
+
+      sheet.rows.last.cells.first.u = :single
+
+      sheet.add_hyperlink location: url_for(action: "show", id: product.id, only_path: false),
+                          ref: sheet.rows.last.cells.first
+    end
+
+    sheet.add_row ['Total', "=SUM(B1:B#{@products.length})"]
+
+    sheet.add_chart(Axlsx::Bar3DChart, start_at: "D1", end_at: "N#{(@products.length * 1.5).floor}") do |chart|
+      chart.add_series data: sheet["B1:B#{@products.length}"],
+                       labels: sheet["A1:A#{@products.length}"],
+                       title: "Products by price",
+                       colors: @products.map { "00FF00" }
+
+      chart.valAxis.gridlines = false
+      chart.catAxis.gridlines = false
+    end
+  end
+end

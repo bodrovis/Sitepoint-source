@@ -1,0 +1,48 @@
+<%= form_for @place do |f| %>
+  <fieldset class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :visited_by %>
+    <%= f.text_field :visited_by, class: "form-control" %>
+  </fieldset>
+
+  <h4>Enter either address or coordinates</h4>
+  <fieldset class="form-group">
+    <%= f.label :raw_address, 'Address' %>
+    <%= f.text_field :raw_address, class: "form-control" %>
+    <small class="text-muted">You can also enter IP. Your IP is <%= request.ip %></small>
+  </fieldset>
+
+  <div class="form-group row">
+    <div class="col-sm-1">
+      <%= f.label :latitude %>
+    </div>
+
+    <div class="col-sm-3">
+      <%= f.text_field :latitude, class: "form-control" %>
+    </div>
+
+    <div class="col-sm-1">
+      <%= f.label :longitude %>
+    </div>
+
+    <div class="col-sm-3">
+      <%= f.text_field :longitude, class: "form-control" %>
+    </div>
+
+    <div class="col-sm-4">
+      <a href="#" id="find-on-map" class="btn btn-info btn-sm">Find on the map</a>
+    </div>
+  </div>
+
+  <%= f.submit 'Add!', class: 'btn btn-primary' %>
+<% end %>
+
+<div class="card">
+  <div class="card-block">
+    <div id="map"></div>
+  </div>
+</div>

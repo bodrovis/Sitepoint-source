@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Vagabond</title>
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8&callback=initMap"
+                                         async defer></script>
+</head>
+
+<body>
+<nav class="navbar navbar-dark bg-inverse">
+  <%= link_to 'Vagabond', root_path, class: 'navbar-brand' %>
+
+  <ul class="nav navbar-nav">
+    <li class="nav-item">
+      <%= link_to 'Places', places_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Add Place', new_place_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Measure distance between places', new_distance_path, class: 'nav-link' %>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg.html_safe, class: "alert alert-#{name}") %>
+  <% end %>
+
+  <%= yield %>
+</div>
+
+<footer>
+  <div class="container">
+    <p class="text-muted">Created by <%= link_to 'Radiant Wind', 'http://bodrovis.tech' %></p>
+  </div>
+</footer>
+</body>
+</html>

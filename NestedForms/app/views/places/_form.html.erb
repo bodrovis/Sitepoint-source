@@ -1,0 +1,26 @@
+<%= form_for @place do |f| %>
+  <%= render 'shared/errors', object: @place %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <p><strong>Addresses:</strong></p>
+
+    <div id="addresses">
+      <%= f.fields_for :addresses do |address| %>
+        <%= render 'address_fields', f: address %>
+      <% end %>
+
+      <div class="links">
+        <%= link_to_add_association 'add address', f, :addresses %>
+      </div>
+
+      <p class="count">Total: <span><%= @place.addresses.count %></span></p>
+    </div>
+  </div>
+
+  <%= f.submit %>
+<% end %>

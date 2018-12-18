@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     rescue
       flash[:error] = "Can't authorize you..."
     else
-      @user.load_matches!(1)
+      @user.load_matches!(3)
       session[:user_id] = @user.id
       flash[:success] = "Welcome, #{@user.nickname}!"
     end

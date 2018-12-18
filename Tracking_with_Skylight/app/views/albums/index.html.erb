@@ -1,0 +1,7 @@
+<h1>Albums</h1>
+
+<%= link_to 'add more albums', albums_path, method: :post %>
+
+<ul>
+  <%= render @albums, cached: true %>
+</ul>

@@ -1,0 +1,5 @@
+<h1>Videos</h1>
+
+<%= link_to 'Add video', new_video_path %>
+
+<%= render partial: 'video', collection: @videos, as: :video %>

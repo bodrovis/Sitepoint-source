@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416120510) do
+ActiveRecord::Schema.define(version: 20150528134043) do
 
   create_table "matches", force: :cascade do |t|
-    t.integer  "uid",         null: false
+    t.integer  "uid",             null: false
     t.integer  "user_id"
     t.string   "winner"
     t.string   "first_blood"
@@ -22,9 +22,13 @@ ActiveRecord::Schema.define(version: 20150416120510) do
     t.string   "mode"
     t.string   "duration"
     t.string   "cluster"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "match_type"
+    t.text     "towers_status"
+    t.text     "barracks_status"
+    t.integer  "likes"
+    t.integer  "dislikes"
   end
 
   add_index "matches", ["user_id"], name: "index_matches_on_user_id"
@@ -49,9 +53,11 @@ ActiveRecord::Schema.define(version: 20150416120510) do
     t.integer  "hero_healing"
     t.text     "items"
     t.integer  "slot"
-    t.boolean  "radiant",      null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "radiant",          null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.text     "additional_units"
+    t.text     "ability_upgrades"
   end
 
   add_index "players", ["match_id"], name: "index_players_on_match_id"

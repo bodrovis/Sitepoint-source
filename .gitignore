@@ -1,1 +1,5 @@
 .idea/
+
+local_env.yml
+.env
+.node_modules

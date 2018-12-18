@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>PunditAuth</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Pundit', root_path, class: 'navbar-brand' %>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'All posts', posts_path %></li>
+        <li><%= link_to 'Your posts', user_posts_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div id="flash">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+  </div>
+
+  <% if current_user %>
+    <div class="well well-sm">
+      Admin: <strong><%= current_user.admin? %></strong><br>
+      <%= link_to 'Toggle admin rights', user_path(current_user), method: :patch, class: 'btn btn-info' %>
+    </div>
+  <% end %>
+
+  <%= yield %>
+</div>
+
+<div id="footer">
+  <div class="container">
+    <p class="text-muted">Created by <a href="http://bodrovis.tech" target="_blank">Radiant Wind</a></p>
+  </div>
+</div>
+
+</body>
+</html>

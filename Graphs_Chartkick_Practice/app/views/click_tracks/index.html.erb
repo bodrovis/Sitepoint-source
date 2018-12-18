@@ -1,0 +1,51 @@
+<h1>Click tracking</h1>
+
+<div id="event_period" class="row">
+  <%= form_tag api_item_click_tracks_path(@item), remote: true do %>
+
+    <div class="col-sm-1">
+      <label for="start_date">Start date</label>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="input-group">
+        <input type="text" class="actual_range form-control datepicker" id="start_date" name="start_date">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-1 col-sm-offset-1">
+      <label for="end_date">End date</label>
+    </div>
+
+    <div class="col-sm-3">
+      <div class="input-group">
+        <input type="text" class="actual_range form-control datepicker" id="end_date" name="end_date">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <%= submit_tag 'Show!', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
+
+<%= render 'graph' %>
+
+<script data-turbolinks-track>
+  $(document).ready(function() {
+    $('#event_period').datepicker({
+      inputs: $('.actual_range'),
+      startDate: '-3y',
+      endDate: '0d',
+      todayBtn: 'linked',
+      todayHighlight: 'true',
+      format: 'yyyy-mm-dd'
+    });
+  });
+</script>
