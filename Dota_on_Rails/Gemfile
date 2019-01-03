@@ -6,7 +6,7 @@ gem 'rails', '4.2.1'
 gem 'thin'
 
 gem 'omniauth-steam'
-gem 'dota', github: 'bodrovis/dota'
+gem 'dota', github: 'vinnicc/dota'
 
 gem 'bootstrap-sass'
 

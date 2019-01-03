@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SimpleUploader</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'Simple Uploader', root_path, class: 'navbar-brand' %>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Photos', root_path %></li>
+        <li><%= link_to 'Upload Your Photo', new_photo_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="alert alert-info">
+    I will have to remove photos from time to time. Please <strong>do not</strong> add inappropriate content. I are
+    serious (like <a href="https://avatars3.githubusercontent.com/u/646942?v=3&s=460" target="_blank">thiz cat</a>).
+  </div>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+
+  <%= yield %>
+</div>
+
+<div id="footer">
+  <div class="container">
+    <p class="text-muted">Created by <a href="http://bodrovis.tech" target="_blank">Radiant Wind</a></p>
+  </div>
+</div>
+
+</body>
+</html>

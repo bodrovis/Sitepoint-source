@@ -1,0 +1,10 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+#footer {
+  margin-top: 50px;
+}
+
+.alert-notice {
+  @extend .alert-warning;
+}

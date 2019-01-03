@@ -1,0 +1,16 @@
+<div>
+  <h2>Latests Posts:</h2>
+  <hr>
+  <div *ngFor='let post of posts'>
+    <div *ngIf='editingPost != post; else postEdit'>
+    <h1 [innerHTML]='post.title.rendered'></h1>
+    <p [innerHTML]='post.content.rendered'></p>
+    <button *ngIf='token' (click)='deletePost(post.id, $index)'>Delete</button>
+    <button *ngIf='token' (click)='updatePost(post)'>Edit</button>
+    <hr>
+  </div>
+</div>
+
+<ng-template #postEdit>
+  <post-edit [post]='editingPost' [token]='token' (finish)='editingPost = null; getPosts()'></post-edit>
+</ng-template>

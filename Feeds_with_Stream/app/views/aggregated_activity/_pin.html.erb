@@ -1,0 +1,15 @@
+<% if activity['actor_count'] == 1 %>
+  <%= activity['activities'][0]['actor'].name %> pinned <%= pluralize(activity['activity_count'], 'item') %>
+<% elsif activity['actor_count'] == 2 %>
+  <%= activity['activities'][0]['actor'].name %> and <%= activity['activities'][1]['actor'].name %> pinned <%= activity['activity_count'] %> items
+<% else %>
+  <%= activity['activities'][0]['actor'].name %>, <%= activity['activities'][1]['actor'].name %> and <%= activity['actor_count'].name - 2 %> more pinned <%= activity['activity_count'] %> items
+<% end %>
+
+<div class="pull-right">
+  <i class="glyphicon glyphicon-time"></i> <%= time_ago_in_words(activity['updated_at']) %> ago
+</div>
+
+<% for activity in activity['activities'] %>
+  <%= render_activity activity %>
+<% end %>

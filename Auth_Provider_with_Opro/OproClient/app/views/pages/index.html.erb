@@ -1,0 +1,11 @@
+<h1>Welcome!</h1>
+<% if current_user %>
+  <ul>
+    <li><%= link_to 'Show some money', api_tests_path %></li>
+    <li><%= link_to 'Get a user', api_test_path(1) %></li>
+    <li><%= link_to 'Update a user', api_test_path(1), method: :patch %></li>
+  </ul>
+  <%= link_to 'Logout', logout_path, method: :delete %>
+<% else %>
+  <%= link_to 'Authenticate via oPRO', new_opro_token_path %>
+<% end %>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>FeedMe</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to 'FeedMe', root_path, class: 'navbar-brand' %>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <li><%= link_to 'New item', new_item_path %></li>
+          <li><%= link_to 'Users', users_path %></li>
+          <li><%= link_to 'Flat news feed', feed_flat_path %></li>
+          <li><%= link_to 'Aggregated news feed', feed_aggregated_path %></li>
+          <li><%= link_to 'Notification feed', feed_notification_path %></li>
+          <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="glyphicon"></i> <%= current_user.name %><b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'My feed', feed_user_path(current_user) %></li>
+              <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+
+  <%= yield %>
+
+  <div id="footer">
+    <div class="container-fluid">
+      <p class="text-muted">Created by <a href="http://bodrovis.tech" target="_blank">Radiant Wind</a></p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

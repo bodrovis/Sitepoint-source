@@ -1,0 +1,96 @@
+<h3 class="<%= team %>">Team <%= team.titleize %></h3>
+
+<table class="table table-hover table-striped info-table">
+  <tr>
+    <th>Player ID</th>
+    <th>Hero</th>
+    <th>Level</th>
+    <th>Items</th>
+    <th>Kills</th>
+    <th>Deaths</th>
+    <th>Assists</th>
+    <th><abbr title="Last hits">LH</abbr></th>
+    <th><abbr title="Denies">DN</abbr></th>
+    <th>Gold (spent)</th>
+    <th><abbr title="Gold per minute">GPM</abbr></th>
+    <th><abbr title="Experience per minute">XPM</abbr></th>
+    <th><abbr title="Hero damage">HD</abbr></th>
+    <th><abbr title="Tower damage">TD</abbr></th>
+    <th><abbr title="Hero healing">HH</abbr></th>
+  </tr>
+  <% players.each do |player| %>
+    <tr>
+      <td>
+        <% if player.abandoned_or_not_connected? %>
+          <abbr class="text-muted" title="<%= player.status.to_s.titleize %>"><%= player.uid %></abbr>
+        <% else %>
+          <%= player.uid %>
+        <% end %>
+      </td>
+      <td><%= render 'player_hero', hero: player.hero %></td>
+      <td><%= player.level %></td>
+      <td><%= render 'items', items: player.items %></td>
+      <td><%= player.kills %></td>
+      <td><%= player.deaths %></td>
+      <td><%= player.assists %></td>
+      <td><%= player.last_hits %></td>
+      <td><%= player.denies %></td>
+      <td><%= player.gold %> (<%= player.gold_spent %>)</td>
+      <td><%= player.gpm %></td>
+      <td><%= player.xpm %></td>
+      <td><%= player.hero_damage %></td>
+      <td><%= player.tower_damage %></td>
+      <td><%= player.hero_healing %></td>
+    </tr>
+    <% if player.additional_units.any? %>
+      <% player.additional_units.each do |unit| %>
+        <tr class="text-muted small">
+          <td></td>
+          <td><%= unit[:name] %></td>
+          <td></td>
+          <td><%= render 'items', items: unit[:items] %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% end %>
+</table>
+
+<h4 class="<%= team %>">Builds</h4>
+
+<table class="table table-hover table-striped info-table">
+  <tr>
+    <th>Hero</th>
+    <% (1..25).each do |level| %>
+      <th><%= level %></th>
+    <% end %>
+  </tr>
+  <% @players[true].each do |player| %>
+    <tr>
+      <td><%= render 'player_hero', hero: player.hero %></td>
+      <% player.ability_upgrades.each do |ability| %>
+        <td class="text-center">
+          <%= image_tag ability[:image], alt: ability[:name], title: ability[:name] %><br/>
+          <small class="text-muted"><%= ability[:time] %></small>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<h4 class="<%= team %>">Remaining buildings</h4>
+
+<h5>Towers</h5>
+
+<ul>
+  <% @match.towers_status[team.to_sym].each do |b| %>
+    <li><%= b.to_s.titleize %></li>
+  <% end %>
+</ul>
+
+<h5>Barracks</h5>
+
+<ul>
+  <% @match.barracks_status[team.to_sym].each do |b| %>
+    <li><%= b.to_s.titleize %></li>
+  <% end %>
+</ul>

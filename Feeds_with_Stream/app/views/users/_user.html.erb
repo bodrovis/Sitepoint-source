@@ -1,0 +1,10 @@
+<h3><%= link_to user.name, feed_user_path(user) %></h3>
+
+<% if user.followed_by(current_user) %>
+  <%= button_to "Unfollow", follow_path(user.followed_by(current_user)), method: :delete, :class => "btn btn-primary btn-sm btn-danger" %>
+<% else %>
+  <%= form_for :follow, url: follows_path do |f| %>
+    <%= f.hidden_field :target_id, value: user.id %>
+    <input class="btn btn-primary btn-sm btn-default" type="submit" value="Follow">
+  <% end %>
+<% end %>

@@ -1,0 +1,35 @@
+<div class="opro">
+  <h2>Authorization Request</h2>
+
+  <p>
+    <%= @client_app.name %>  would like to access your data. Only accept if you trust this application. You will then be redirected back to: "<%= @redirect_uri %>".
+  </p>
+
+  <%= form_for @client_app, :url => oauth_authorize_path(:client_id => @client_app.client_id, :redirect_uri => @redirect_uri), :method => :post do |f| %>
+
+    I Authorize <%= @client_app.name %> to:
+
+    <ul>
+      <li><%= check_box_tag 'permissions[read]', 1, true, {:disabled => true} %> Read</li>
+      <% @scopes.each do |permission| %>
+        <% is_checked =  @client_app.permissions.key?(permission) ? @client_app.permissions[permission] : true %>
+        <li>
+          <%= check_box_tag "permissions[#{permission}]", 1, is_checked %>
+          <%= permission.capitalize %>
+        </li>
+      <% end %>
+    </ul>
+
+    <%= f.submit 'Authorize This Application', :id => 'oauthAuthorize', :class => 'btn btn-primary' %>
+  <%- end -%>
+
+  <%= button_to 'Decline this Request', request.referrer||'/', :id => 'oauthNoAuthorize' %>
+
+  <h2>Explanation</h2>
+
+  <ul>
+    <li><strong>Read</strong> - the app will be able to read information about your account.
+    This permission is required.</li>
+    <li><strong>Write</strong> - the app will be able to modify your account.</li>
+  </ul>
+</div>

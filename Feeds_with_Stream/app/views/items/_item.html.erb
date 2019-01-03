@@ -1,0 +1,8 @@
+<div class="well well-sm">
+  <small class="text-muted"><%= time_ago_in_words item.created_at %> ago</small>
+  <h3><%= item.title %></h3>
+  <p><%= item.message %></p>
+
+  <%= render "pins/form", item: item %>
+</div>
+

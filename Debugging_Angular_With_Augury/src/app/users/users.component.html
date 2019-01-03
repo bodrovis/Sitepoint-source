@@ -1,0 +1,13 @@
+<div *ngFor="let user of users" (click)="onSelect(user)"
+[class.selected]="user === selectedUser">
+  <p>{{user.last}}, {{user.first}} (ID: {{user.id}})</p>
+</div>
+
+<div *ngIf="selectedUser">
+  <h3>Edit</h3>
+  <label for="first">First</label>
+  <input [(ngModel)]="selectedUser.first" placeholder="First name" id="first">
+
+  <label for="last">Last</label>
+  <input [(ngModel)]="selectedUser.last" placeholder="Last name" id="last">
+</div>

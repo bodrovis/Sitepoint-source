@@ -1,0 +1,13 @@
+<li>
+  <strong><%= album.title %></strong> by <%= album.musician %>
+  <% unless album.published? %>
+    <small>(not yet published)</small>
+  <% end %>
+  <ul>
+    <% album.songs.each do |song| %>
+      <% cache song do %>
+        <li><%= song.title %> (<%= song.duration %>s)</li>
+      <% end %>
+    <% end %>
+  </ul>
+</li>

@@ -1,0 +1,13 @@
+<h1>Add animals</h1>
+
+<p>
+  Upload a zip archive with JSON files in the following format:<br>
+  <code>{name: 'name', age: 1, species: 'species'}</code>
+</p>
+
+<%= form_tag animals_path, method: :post, multipart: true do %>
+  <%= label_tag 'archive', 'Select archive' %>
+  <%= file_field_tag 'archive' %>
+
+  <%= submit_tag 'Add!' %>
+<% end %>

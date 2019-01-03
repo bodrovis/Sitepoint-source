@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Messager</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<%= render 'shared/menu' %>
+
+<%= yield %>
+
+<footer>
+  <p>Created by <%= link_to 'Ilya Bodrov', 'http://bodrovis.tech', target: '_blank' %></p>
+</footer>
+</body>
+</html>
