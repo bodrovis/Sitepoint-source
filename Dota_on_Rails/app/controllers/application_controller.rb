@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
   def dota_api
     Dota.api
   end
+  
+  def dota_apiV2
+    Dota.api
+  end
 
   helper_method :current_user
 end
