@@ -4,6 +4,8 @@ version: 1
 # "merge" defines how and when pull requests are merged. If the section is
 # missing, bulldozer will consider all pull requests and use default settings.
 merge:
+ whitelist:
+    labels: ["master"]
   method: squash
 
   # "options" defines additional options for the individual merge methods.
@@ -20,7 +22,10 @@ merge:
   # require extra testing for automated merges, but not for manual merges.
   required_statuses:
     - "default"
-    - "Codacy/PR Quality Review"
 
   # If true, bulldozer will delete branches after their pull requests merge.
   delete_after_merge: true
+  
+  update:
+  whitelist:
+    labels: ["master updated"]
