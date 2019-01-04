@@ -5,23 +5,9 @@ version: 1
 # missing, bulldozer will consider all pull requests and use default settings.
 merge:
   method: squash
-
-  # "options" defines additional options for the individual merge methods.
   options:
-    # "squash" options are only used when the merge method is "squash"
     squash:
-      # "body" defines how the body of the commit message is created when
-      # generating a squash commit. The options are "pull_request_body",
-      # "summarize_commits", and "empty_body".
       body: "summarize_commits"
-
-  # "required_status" is a list of additional status contexts that must pass
-  # before bulldozer can merge a pull request. This is useful if you want to
-  # require extra testing for automated merges, but not for manual merges.
-  #required_statuses:
-  #  - "default"
-
-  # If true, bulldozer will delete branches after their pull requests merge.
   delete_after_merge: true
   
 
