@@ -18,8 +18,8 @@ merge:
   # "required_status" is a list of additional status contexts that must pass
   # before bulldozer can merge a pull request. This is useful if you want to
   # require extra testing for automated merges, but not for manual merges.
-  required_statuses:
-    - "default"
+  #required_statuses:
+  #  - "default"
 
   # If true, bulldozer will delete branches after their pull requests merge.
   delete_after_merge: true
