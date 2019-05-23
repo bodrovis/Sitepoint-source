@@ -8,3 +8,4 @@ Source code for previous articles can be found in the corresponding [repos](http
 
 (c) Ilya Bodrov ([radiant-wind.com](http://radiant-wind.com))
 Updated Readme
+Check for strict now!
