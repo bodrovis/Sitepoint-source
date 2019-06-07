@@ -4,7 +4,7 @@
 
 
 
-Source code for previous articles can be found in the corresponding [repos](https://github.com/bodrovis?tab=repositories).
+The Source code for previous articles can be found in the corresponding [repos](https://github.com/bodrovis?tab=repositories).
 
 (c) Ilya Bodrov ([radiant-wind.com](http://radiant-wind.com))
 Updated Readme
